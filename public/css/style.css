@@ -1,0 +1,274 @@
+/* GLOBAL ================================= */
+:root{
+    --color-purple:#363f5f;
+    --green:#49aa26;
+}
+* {
+margin:0; 
+padding:0;
+box-sizing: border-box;
+}
+
+html {
+    font-size:93.75%;
+}
+
+body{
+    background:#f0f2f5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    width:min(90vw,800px);
+
+    margin:auto;
+}
+
+/* TITLES ================================= */
+h2{
+    margin-top:3.2rem;
+    margin-bottom:0.8rem;
+    color:#363f5f;
+
+    font-weight:normal;
+}
+
+/* CARDS ================================= */
+.card {
+    border-radius:0.25rem;
+    background:white;
+    padding:1.5rem 2rem;
+    margin-bottom:2rem;
+
+    color:var(--color-purple)
+}
+
+.card h3{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight: normal;
+    font-size:1rem;
+
+    margin-top:1rem;
+}
+
+.card p{
+    font-size:2rem;
+    line-height:3rem;
+}
+.card.total{
+    color:white;
+    background-color:var(--green);
+}
+
+/* HEADER ================================= */
+header{
+    text-align: center;
+    padding: 2rem 0 10rem;
+    background:#2d4a22;
+
+}
+header #logo{
+color:#fff;
+font-weight: 100;
+}
+
+/* BALANCE ================================= */
+
+#balance{
+    margin-top: -8rem;
+}
+#balance h2{
+    color:white;
+}
+
+.sr-only{
+   position: absolute;
+   width:1px;
+   height:1px;
+   margin:-1px;
+   padding: 0;
+   overflow:hidden;
+}
+
+/* TRANSACTION & TABLE ================================= */
+
+#transactions{
+    display:block;
+    width:100%;
+    overflow-x:auto;
+}
+
+/* Links IN buttons ================================= */
+p.button{
+    color:#3dd775;
+    text-decoration: none;
+    transition: font-size 0.3s;
+    cursor:pointer;
+}
+
+p.button:hover{
+    font-size: 12.5pt;
+
+}
+.button.new{
+    display:inline-block; /*Seguinte, o display inline não funciona margin, já o block funciona, poreeeeem, o display block funciona como um paragraf, pega toda a linha, então fica todo bugado quando aplica um hover, por exemplo, pois fica extrapolando o elemento. Então aí entra o display inline-block, nele da pra colocar margin e não extrapola o conteúdo*/
+    margin-bottom:0.8rem;
+}
+
+
+#data-table{
+width:100%;
+border-spacing:0 0.5rem;
+color:var(--color-purple);
+}
+table th{
+    background:rgb(255, 255, 255);
+    opacity: 0.6;
+    color: var(--color-purple);
+    padding:1rem 2rem;
+    text-align:left;
+    
+}
+table td{
+    background:rgb(255, 255, 255);
+    padding:1rem 2rem;
+    
+}
+table tr{
+    opacity:0.7;
+}
+table tr:hover{
+    opacity:1;
+}
+table thead tr th:first-child,
+table tbody tr td:first-child{
+border-radius: 0.25rem 0 0 0.25rem;;
+}
+table thead tr th:last-child,
+table tbody tr td:last-child{
+border-radius: 0 0.25rem 0.25rem 0;
+}
+.description{
+color:var(--color-purple)
+}
+.expense{
+color:red;
+}
+.income{
+    color:#12a454;
+}
+.data{
+color:rgb(64, 186, 235);
+}
+/* MODAL ================================= */
+.modal-overlay{
+    position: fixed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    width:100%;
+    background:rgba(0, 0, 0, 0.7);
+    top:0;
+    visibility:hidden;
+}
+.modal-overlay.active{
+    visibility: visible;
+}
+.modal{
+    background:#f0f2f5;
+    padding:0 2rem 0 2rem;
+   
+}
+.modal h2{
+    color:var(--color-purple)
+}
+.modal-content{
+    margin-bottom:5rem;
+}
+.modal-content span{
+    position:relative;
+    top:-15px;
+    color:rgba(17, 6, 6, 0.473);
+}
+.modal .inputData{
+    position: relative;
+    width:100%;
+    margin-bottom:1rem;
+    padding:10px;
+    border:none;
+    outline:none;
+}
+button{
+    height:3.5rem;
+    cursor:pointer;
+    opacity:0.7;
+}
+button:hover{
+    opacity:1;
+}
+#last-button{
+    background: var(--green);
+    color:white;
+    outline:none;
+    border:none;
+}
+#buttons{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:2rem;
+}
+#newAdvice{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:red;
+}
+/* FOOTER ================================= */
+
+footer{
+    text-align: center;
+    padding:3rem;
+    margin-top:2rem;
+}
+
+/* ANIMATIONS============= */
+
+@keyframes up{
+    from{
+        opacity:0;
+        transform: translateY(16px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.animate-card{
+    transition: all 0.3s;
+    animation-name: up;
+    animation-duration: 0.3s;
+    animation-fill-mode: initial;
+}
+.animate-card:hover{
+    cursor:default;
+   padding:25px;
+}
+
+
+/* RESPONSIVO ================================= */
+
+@media (min-width: 800px){
+    html{
+        font-size:87.5%;
+    }
+
+    #balance{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr; /*OU ao invés desse monte de 1fr, pode usar repeat(3,1fr), em que 3 é o número que terá de repetir*/
+        gap:2rem; /*Espaço entre as colunas*/
+    }
+}

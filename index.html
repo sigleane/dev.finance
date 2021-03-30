@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dev.finance$</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+        <h1 id="logo"><img src="/public/images/logo.svg" alt="Logo dev Finance"></h1>
+    </header>
+
+    <main class="container">
+    <section id="balance">
+      
+        <h2 class="sr-only">Balanço</h2>
+
+        <div class="card animate-card">
+            <h3>
+              <span>Entradas</span>   
+              <img src="/public/images/income.svg" alt="Imagem de entradas">
+            </h3>
+            <p id="incomeDisplay">1</p>
+        </div>
+    
+        <div class="card animate-card">
+          <h3>
+          <span>Saídas</span>   
+          <img src="/public/images/expense.svg" alt="Imagem de saídas">
+        </h3>
+            <p id="expenseDisplay">1</p>
+        </div>
+        
+        <div class="card total animate-card">
+        <h3>
+          <span>Total</span>   
+          <img src="/public/images/total.svg" alt="Imagem de total">
+        </h3>
+            <p id="totalDisplay">1</p>
+        </div>
+      
+
+    </section>
+   <section id="transactions">
+
+    <h2 class="sr-only">Transações</h2>
+
+    <p class="button new">+ Nova transação</p>
+
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Descrição</th> 
+          <th>Valor</th>
+          <th>Data</th> 
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+   
+      </tbody>
+    </table> 
+
+    </section>
+    </main>
+
+      <footer>2021 - dev.finance$ - </footer>
+
+<div class="modal-overlay">
+  <div class="modal">
+    <form action="" class="modal-content"> 
+      <h2>Nova transação</h2>
+      <p><input type="text"  id="description" class="inputData" name="description" placeholder="descrição" required></p>
+
+      <p><input type="number" id="amount" class="inputData" name="valor" step="0.01" placeholder="0,00" required></p>
+   
+      <br>
+   
+      <span id="advice">Use o sinal de - (negativo) para despesas e , (vírgula) para casas decimais</span>
+      <p><input type="date" id="date" class="inputData"  name="data" placeholder="dd/mm/aaaa" required></p>
+   
+      <div id="buttons">
+       <button id="cancel">cancelar</button>
+       <button type="submit" id="last-button">salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="/public/scripts/script.js"></script>
+  </body>
+</html>
