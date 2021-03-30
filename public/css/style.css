@@ -255,6 +255,7 @@ footer{
 }
 .animate-card:hover{
     cursor:default;
+    box-shadow: 0 3px 6px rgba(52,60,88,.4);
    padding:25px;
 }
 
@@ -271,4 +272,6 @@ footer{
         grid-template-columns:1fr 1fr 1fr; /*OU ao invés desse monte de 1fr, pode usar repeat(3,1fr), em que 3 é o número que terá de repetir*/
         gap:2rem; /*Espaço entre as colunas*/
     }
+
+   
 }
