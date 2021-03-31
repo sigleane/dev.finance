@@ -127,18 +127,31 @@
             validateDescription(event){
                 const {description,amount,date} = form.getValues();
                 if(description.trim() == ""){
-                    event.preventDefault();
-                    const getForm = document.querySelector('form');
-                     const newAdvice = document.createElement("p");
-                     newAdvice.id = "newAdvice"
-                     newAdvice.innerHTML = "Por favor, preencha todos os dados";
-                     getForm.appendChild(newAdvice);
+                    return true
+                 
                  }
             },
             saveTransaction(transaction){
             balance.add(transaction)
             },
             getForm:document.querySelector('form').addEventListener('submit',function(event){
+            if(form.validateDescription() === true){
+                function messageError(){
+                    const newAdvice = document.querySelector(".advice");
+                    const getForm = document.querySelector('form');
+                    if(newAdvice.hasAttribute('id')){
+                        
+                    }else{
+                        newAdvice.id = "newAdvice"
+                    event.preventDefault();
+                   
+                     newAdvice.textContent = "Por favor, preencha todos os dados";
+                     getForm.appendChild(newAdvice);
+                    }
+                }
+                return messageError()
+            }else{
+            
                 form.getForm = event.preventDefault()
                 form.validateDescription(event);
                 const {description,amount,date} = form.getValues();
@@ -151,6 +164,7 @@
                 App.reload();
                 DOM.closeForm();
                 DOM.deleteFormData();
+            }
             }) 
              
         }
