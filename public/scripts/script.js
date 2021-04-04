@@ -106,7 +106,7 @@
         $('.modal-overlay').removeClass("active")
         },
         deleteFormData(){
-       form.description.value = "";
+       form.description.value = ""; 
        form.amount.value = "";
        form.date.value = "";
         }
@@ -140,7 +140,7 @@
                     const newAdvice = document.querySelector(".advice");
                     const getForm = document.querySelector('form');
                     if(newAdvice.hasAttribute('id')){
-                        
+                        return event.preventDefault();
                     }else{
                         newAdvice.id = "newAdvice"
                     event.preventDefault();
