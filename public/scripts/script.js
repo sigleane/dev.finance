@@ -15,11 +15,8 @@
                 balance.all.push(transaction)
             },
             remove(index){
-                console.log(index)
-                balance.all.splice(index,1)
-                console.log(balance.all)
-                App.reload();
-                console.log(balance.all)
+                balance.all.splice(index,1)  
+                App.reload(); 
             }, //OUTRO JEITO DE REMOVER ITENS DE ARRAY
             incomes(){
                 let income =0;
@@ -100,10 +97,12 @@
         },
      
          clearTable(){
-            $('tbody tr').remove()
+            const getTbody = document.querySelector('tbody');
+           getTbody.innerHTML = ""
         },
         closeForm(){
-        $('.modal-overlay').removeClass("active")
+        const getModal = document.querySelector('.modal-overlay');
+        getModal.classList.remove('active')
         },
         deleteFormData(){
        form.description.value = ""; 
@@ -127,7 +126,7 @@
             validateDescription(event){
                 const {description,amount,date} = form.getValues();
                 if(description.trim() == ""){
-                    return true
+                    return false
                  
                  }
             },
@@ -135,7 +134,7 @@
             balance.add(transaction)
             },
             getForm:document.querySelector('form').addEventListener('submit',function(event){
-            if(form.validateDescription() === true){
+            if(form.validateDescription() === false){
                 function messageError(){
                     const newAdvice = document.querySelector(".advice");
                     const getForm = document.querySelector('form');
@@ -151,7 +150,9 @@
                 }
                 return messageError()
             }else{
-            
+                const newAdvice = document.querySelector(".advice");
+                newAdvice.removeAttribute('id');
+                newAdvice.textContent = ""
                 form.getForm = event.preventDefault()
                 form.validateDescription(event);
                 const {description,amount,date} = form.getValues();
@@ -174,8 +175,6 @@
         const App = {
         init(){
             balance.all.forEach(function(transaction,index){
-                // let index = balance.all.length
-                // console.log(index)
                 DOM.trasactionsContainer.appendChild(DOM.addTransaction(transaction,index))
               
             })
@@ -195,25 +194,28 @@
        
            
             
-        // ========================    JQUERY    ===========================
+            const getModal = document.querySelector('.modal-overlay')
 
-        
-        
-        $(function(){
-            // OPEN & CLOSE BUTTON ======================
-            $('p.button.new').on('click',function(){
-                //adiciona a classe active
-                $('.modal-overlay').addClass("active") //Ou usar .classList.add no js normal
-            })
-        
-            $('#cancel').on('click',function(e){ //remove a classe ctive
-                e.preventDefault() 
-                $('.modal-overlay').removeClass("active") //Ou usar .classList.remove no js normal
-            })
+            const getNewTransaction = document.querySelector('p.button.new')
+            getNewTransaction.addEventListener('click',openTransaction)
+            
+            const getCancel = document.querySelector('#cancel')
+            getCancel.addEventListener('click',cancelTransaction)
 
-        })
-     
 
+               
+
+            function openTransaction(){
+              
+                getModal.classList.add('active')
+            }
+
+            function cancelTransaction(event){
+                event.preventDefault();
+                getModal.classList.remove("active")
+            }
+        
+  
         // =============== MÉTODOS DIFERENTES ================
         // THROW ERROR
         // if(description.trim() == "uiui"){
