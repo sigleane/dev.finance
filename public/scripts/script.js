@@ -7,7 +7,7 @@
         localStorage.setItem("dev.finance:transactions", JSON.stringify(transactions)); //transforma em string
         }
         }
-
+ 
 
         const balance ={
             all:storage.get(), //storage.get()
@@ -125,7 +125,7 @@
             },
             validateDescription(event){
                 const {description,amount,date} = form.getValues();
-                if(description.trim() == ""){
+                if(description.trim() == "" || amount.trim() == ""){
                     return false
                  
                  }
