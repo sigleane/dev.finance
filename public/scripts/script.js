@@ -1,4 +1,4 @@
-       const storage = {
+        const storage = {
         get(){
         return JSON.parse(localStorage.getItem("dev.finance:transactions")) || []
         }, // re-Transforma em array
@@ -7,8 +7,8 @@
         localStorage.setItem("dev.finance:transactions", JSON.stringify(transactions)); //transforma em string
         }
         }
- 
-
+   
+  
         const balance ={
             all:storage.get(), //storage.get()
             add(transaction){
@@ -169,6 +169,7 @@
             }) 
              
         }
+       
          
      
 

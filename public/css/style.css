@@ -5,7 +5,7 @@
 }
 * {
 margin:0; 
-padding:0;
+padding:0; 
 box-sizing: border-box;
 }
 
@@ -227,6 +227,73 @@ button:hover{
     padding-top:50px;
     color:red;
 }
+
+#entries-class{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:10px;
+    padding-left: 45px;
+    padding-right: 45px;
+
+}
+#entries-class span{
+    color:rgb(146, 140, 140);
+}
+
+#entries-class span input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+width:90px;
+height: 80px;
+border: 3px solid rgb(12, 224, 171);
+border-radius: 10px;
+font: bold 12px Arial, sans-serif;
+color:white;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+cursor: pointer;
+background:rgb(4, 119, 65);
+}
+
+
+
+input[type="radio"] + label:hover{
+    background-color: rgba(7, 75, 22, 0.842);
+}
+
+
+#gasto input[type="radio"] + label{
+    background-color: rgba(167, 14, 14, 0.842);
+    border: 3px solid rgb(12, 224, 171);
+}
+
+
+#gasto input[type="radio"] + label:hover{
+    background-color: rgba(126, 7, 7, 0.842);
+}
+
+#fiado input[type="radio"] + label{
+    background-color: rgb(16, 171, 192);
+    border: 3px solid rgb(12, 224, 171);
+}
+
+#fiado input[type="radio"] + label:hover{
+    background-color: rgba(6, 138, 143, 0.842);
+}
+
+
+#moneyReceived,#payment{
+    position: relative;
+    top: 10px;
+}
+
+
+
+
 /* FOOTER ================================= */
 
 footer{
