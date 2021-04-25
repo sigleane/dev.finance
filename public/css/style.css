@@ -233,8 +233,7 @@ button:hover{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap:10px;
-    padding-left: 45px;
-    padding-right: 45px;
+  
 
 }
 #entries-class span{
@@ -341,5 +340,10 @@ footer{
         gap:2rem; /*Espaço entre as colunas*/
     }
 
+    #entries-class{
+        top: -5px;
+        padding-left: 65px;
+        padding-right: 65px;
+    }
    
 }
