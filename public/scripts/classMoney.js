@@ -2,40 +2,30 @@ let fiado = document.querySelector('#fiado');
 let recebido = document.querySelector('#recebido');
 let gasto = document.querySelector('#gasto');
 
+
 fiado.addEventListener('click',function(){
-    if(recebido.hasAttribute("class")){
+    if(recebido.classList.contains('recebido')){
         recebido.classList.remove('recebido') 
+        fiado.classList.toggle('fiado')
+    }else if(gasto.classList.contains('gasto')){
+        gasto.classList.remove('gasto')
+        fiado.classList.toggle('fiado')
+    }else{
+        fiado.classList.toggle('fiado')
     }
     
-    if(gasto.hasAttribute('class')){
-        gasto.classList.remove('gasto')
-    }
-
-
-    if(fiado.classList.contains('fiado')){
-        fiado.classList.remove('fiado')
-    }else{
-        fiado.classList.add('fiado')
-       
-    }
-
-
+    
 }) 
 
 recebido.addEventListener('click',function(){
-    if(fiado.hasAttribute("class")){
+    if(fiado.classList.contains('fiado')){
         fiado.classList.remove('fiado') 
-    }
-     if(gasto.hasAttribute('class')){
+        recebido.classList.toggle('recebido')
+    }else if(gasto.classList.contains('gasto')){
         gasto.classList.remove('gasto')
-    }
-
-    
-    if(recebido.classList.contains('recebido')){
-        recebido.classList.remove('recebido')
+        recebido.classList.toggle('recebido')
     }else{
-        recebido.classList.add('recebido')
-       
+        recebido.classList.toggle('recebido')
     }
 
 
@@ -43,20 +33,14 @@ recebido.addEventListener('click',function(){
 
 
 gasto.addEventListener('click',function(){
-    if(fiado.hasAttribute("class")){
-        fiado.classList.remove('fiado') 
-    }
-     if(recebido.hasAttribute('class')){
-        recebido.classList.remove('recebido')
-    }
-
-    
-    if(gasto.classList.contains('gasto')){
-        gasto.classList.remove('gasto')
+    if(recebido.classList.contains('recebido')){
+        recebido.classList.remove('recebido') 
+        gasto.classList.toggle('gasto')
+    }else if(fiado.classList.contains('fiado')){
+        fiado.classList.remove('fiado')
+        gasto.classList.toggle('gasto')
     }else{
-        gasto.classList.add('gasto')
-       
+       gasto.classList.toggle('gasto')
     }
-
-
+    
 }) 
