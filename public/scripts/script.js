@@ -6,7 +6,7 @@
         set(transactions){
         localStorage.setItem("dev.finance:transactions", JSON.stringify(transactions)); //transforma em string
         }
-        }
+        } 
    
   
         const balance ={

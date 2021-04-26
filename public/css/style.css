@@ -228,7 +228,7 @@ button:hover{
     color:red;
 }
 
-#entries-class{
+.entries-class{
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -236,11 +236,11 @@ button:hover{
   
 
 }
-#entries-class span{
+.entries-class span{
     color:rgb(146, 140, 140);
 }
 
-#entries-class span input[type="radio"] {
+.entries-class span input[type="radio"] {
     display: none;
 }
 
@@ -255,34 +255,60 @@ display: flex;
 justify-content: space-evenly;
 align-items: center;
 cursor: pointer;
-background:rgb(4, 119, 65);
+background-color: rgb(37, 49, 51);
 }
 
 
 
-input[type="radio"] + label:hover{
-    background-color: rgba(7, 75, 22, 0.842);
-}
+
+
 
 
 #gasto input[type="radio"] + label{
-    background-color: rgba(167, 14, 14, 0.842);
+    background-color: rgb(37, 49, 51);
     border: 3px solid rgb(12, 224, 171);
+    transition: all 0.3s;
 }
 
 
 #gasto input[type="radio"] + label:hover{
-    background-color: rgba(126, 7, 7, 0.842);
+    border: 3px solid rgba(154, 156, 155, 0.658);
 }
-
-#fiado input[type="radio"] + label{
-    background-color: rgb(16, 171, 192);
+#fiado img{
+    width: 100%;
+}
+#textFiado{
+    top:-10px;
+}
+#fiado label{
+    background-color: rgb(37, 49, 51);
     border: 3px solid rgb(12, 224, 171);
+    transition: all 0.3s;
+}
+#recebido label{
+    transition: all 0.3s;
+}
+#recebido input[type="radio"] + label:hover{
+    border: 3px solid rgba(154, 156, 155, 0.658);
+  }
+#fiado input[type="radio"] + label:hover{
+  border: 3px solid rgba(154, 156, 155, 0.658);
 }
 
-#fiado input[type="radio"] + label:hover{
-    background-color: rgba(6, 138, 143, 0.842);
+.fiado label{
+    background-color: rgba(6, 138, 143, 0.842) !important;
+   
 }
+
+.recebido label{
+    background-color: rgba(7, 75, 22, 0.842) !important;
+}
+
+.gasto label{
+    background-color: rgba(126, 7, 7, 0.842) !important;
+}
+
+
 
 
 #moneyReceived,#payment{
@@ -340,7 +366,7 @@ footer{
         gap:2rem; /*Espaço entre as colunas*/
     }
 
-    #entries-class{
+    .entries-class{
         top: -5px;
         padding-left: 65px;
         padding-right: 65px;
