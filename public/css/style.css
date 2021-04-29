@@ -100,6 +100,22 @@ font-weight: 100;
     overflow-x:auto;
 }
 
+#classMoneyOption{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+#classMoneyOption button{
+    padding-bottom: 10px;
+    width: 120px;
+    border: none;
+    
+}
+#classMoneyOption button:hover{
+    line-height: 10px;
+    text-decoration: underline;
+}
+
 /* Links IN buttons ================================= */
 p.button{
     color:#3dd775;
@@ -267,7 +283,7 @@ background-color: rgb(37, 49, 51);
 #gasto input[type="radio"] + label{
     background-color: rgb(37, 49, 51);
     border: 3px solid rgb(12, 224, 171);
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
 }
 
 
@@ -283,10 +299,10 @@ background-color: rgb(37, 49, 51);
 #fiado label{
     background-color: rgb(37, 49, 51);
     border: 3px solid rgb(12, 224, 171);
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
 }
 #recebido label{
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
 }
 #recebido input[type="radio"] + label:hover{
     border: 3px solid rgba(154, 156, 155, 0.658);
@@ -296,8 +312,11 @@ background-color: rgb(37, 49, 51);
 }
 
 .fiado label{
-    background-color: rgba(6, 138, 143, 0.842) !important;
+    background-color: rgba(4, 158, 163, 0.842) !important;
    
+}
+.fiadoTable{
+    background-color: red;
 }
 
 .recebido label{

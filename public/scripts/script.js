@@ -1,4 +1,4 @@
-        const storage = {
+                 const storage = {
         get(){
         return JSON.parse(localStorage.getItem("dev.finance:transactions")) || []
         }, // re-Transforma em array
@@ -47,6 +47,16 @@
         const utils = {
             formatAmount(value){
             return Number(value)
+            },
+            reformatAmount(value){
+                if(classMoney == 'gasto'){
+                    let stringNumb = String(value).replace('-','')
+                    return Number(-stringNumb)
+                }else if(classMoney == 'recebido'){
+                    let stringNumb = String(value).replace('-','')
+                    return Number(stringNumb)
+                }
+                
             },
             formatDate(value){
             const splitDate = value.split("-");
@@ -135,19 +145,6 @@
             },
             getForm:document.querySelector('form').addEventListener('submit',function(event){
             if(form.validateDescription() === false){
-                function messageError(){
-                    const newAdvice = document.querySelector(".advice");
-                    const getForm = document.querySelector('form');
-                    if(newAdvice.hasAttribute('id')){
-                        return event.preventDefault();
-                    }else{
-                        newAdvice.id = "newAdvice"
-                    event.preventDefault();
-                   
-                     newAdvice.textContent = "Por favor, preencha todos os dados";
-                     getForm.appendChild(newAdvice);
-                    }
-                }
                 return messageError()
             }else{
                 const newAdvice = document.querySelector(".advice");
@@ -160,6 +157,25 @@
                     description,
                     amount:utils.formatAmount(amount),
                     date:utils.formatDate(date)
+                }
+                if(classMoney == undefined){
+                return messageError();
+                }else if(classMoney == 'fiado'){
+                    alert('é fiado')
+                }else if(classMoney == 'recebido'){
+                    const {description,amount,date} = form.getValues();
+                    transaction = {
+                        description,
+                        amount: utils.reformatAmount(amount),
+                        date:utils.formatDate(date)
+                    }
+                }else if(classMoney == 'gasto'){
+                    const {description,amount,date} = form.getValues();
+                    transaction = {
+                        description,
+                        amount: utils.reformatAmount(amount),
+                        date:utils.formatDate(date)
+                    }
                 }
                 form.saveTransaction(transaction)
                 App.reload();
@@ -216,6 +232,20 @@
                 getModal.classList.remove("active")
             }
         
+
+            function messageError(){
+                const newAdvice = document.querySelector(".advice");
+                const getForm = document.querySelector('form');
+                if(newAdvice.hasAttribute('id')){
+                    return event.preventDefault();
+                }else{
+                    newAdvice.id = "newAdvice"
+                event.preventDefault();
+               
+                 newAdvice.textContent = "Por favor, preencha todos os dados";
+                 getForm.appendChild(newAdvice);
+                }
+            }
   
         // =============== MÉTODOS DIFERENTES ================
         // THROW ERROR
